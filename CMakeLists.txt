@@ -125,14 +125,14 @@ catkin_package(
 # add_dependencies(ros_face_recognition ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 
 ## Declare a C++ executable
-# add_executable(face_recognition_node src/face_recognition_node.cpp)
+# add_executable(ros_face_recognition_node src/ros_face_recognition_node.cpp)
 
 ## Add cmake target dependencies of the executable
 ## same as for the library above
-# add_dependencies(face_recognition_node ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+# add_dependencies(ros_face_recognition_node ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 
 ## Specify libraries to link a library or executable target against
-# target_link_libraries(face_recognition_node
+# target_link_libraries(ros_face_recognition_node
 #   ${catkin_LIBRARIES}
 # )
 
@@ -147,11 +147,12 @@ catkin_package(
 ## in contrast to setup.py, you can choose the destination
 install(PROGRAMS
   scripts/face_recognizer.py
+  scripts/train_util.py
   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 )
 
 ## Mark executables and/or libraries for installation
-# install(TARGETS ros_face_recognition face_recognition_node
+# install(TARGETS ros_face_recognition ros_face_recognition_node
 #   ARCHIVE DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
 #   LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
 #   RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
@@ -176,7 +177,7 @@ install(PROGRAMS
 #############
 
 ## Add gtest based cpp test target and link libraries
-# catkin_add_gtest(${PROJECT_NAME}-test test/test_face_recognition.cpp)
+# catkin_add_gtest(${PROJECT_NAME}-test test/test_ros_face_recognition.cpp)
 # if(TARGET ${PROJECT_NAME}-test)
 #   target_link_libraries(${PROJECT_NAME}-test ${PROJECT_NAME})
 # endif()
