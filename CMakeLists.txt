@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 2.8.3)
-project(face_recognition)
+project(ros_face_recognition)
 
 ## Find catkin macros and libraries
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
@@ -101,7 +101,7 @@ generate_dynamic_reconfigure_options(
 ## DEPENDS: system dependencies of this project that dependent projects also need
 catkin_package(
 #  INCLUDE_DIRS include
-#  LIBRARIES face_recognition
+#  LIBRARIES ros_face_recognition
 #  CATKIN_DEPENDS other_catkin_pkg
 #  DEPENDS system_lib
 )
@@ -115,14 +115,14 @@ catkin_package(
 # include_directories(include)
 
 ## Declare a C++ library
-# add_library(face_recognition
-#   src/${PROJECT_NAME}/face_recognition.cpp
+# add_library(ros_face_recognition
+#   src/${PROJECT_NAME}/ros_face_recognition.cpp
 # )
 
 ## Add cmake target dependencies of the library
 ## as an example, code may need to be generated before libraries
 ## either from message generation or dynamic reconfigure
-# add_dependencies(face_recognition ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+# add_dependencies(ros_face_recognition ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 
 ## Declare a C++ executable
 # add_executable(face_recognition_node src/face_recognition_node.cpp)
@@ -151,7 +151,7 @@ install(PROGRAMS
 )
 
 ## Mark executables and/or libraries for installation
-# install(TARGETS face_recognition face_recognition_node
+# install(TARGETS ros_face_recognition face_recognition_node
 #   ARCHIVE DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
 #   LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
 #   RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}

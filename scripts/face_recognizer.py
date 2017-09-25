@@ -40,9 +40,9 @@ from cv_bridge import CvBridge
 from sensor_msgs.msg import Image
 from dynamic_reconfigure.server import Server
 import dynamic_reconfigure.client
-from face_recognition.cfg import FaceRecognitionConfig
-from face_recognition.utils import get_3d_point
-from face_recognition.msg import Face, Faces
+from ros_face_recognition.cfg import FaceRecognitionConfig
+from ros_face_recognition.utils import get_3d_point
+from ros_face_recognition.msg import Face, Faces
 from std_msgs.msg import String
 
 CWD = os.path.dirname(os.path.abspath(__file__))
@@ -54,7 +54,7 @@ DEFAULT_CLASSIFIER_DIR = os.path.join(HR_MODELS, 'classifier')
 DLIB_FACEPREDICTOR = os.path.join(HR_MODELS,
                     'shape_predictor_68_face_landmarks.dat')
 NETWORK_MODEL = os.path.join(HR_MODELS, 'nn4.small2.v1.t7')
-logger = logging.getLogger('hr.vision.face_recognition.face_recognizer')
+logger = logging.getLogger('hr.vision.ros_face_recognition.face_recognizer')
 
 for d in [DATA_DIR, DATA_ARCHIVE_DIR, CLASSIFIER_DIR]:
     if not os.path.isdir(d):

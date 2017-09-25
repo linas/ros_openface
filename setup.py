@@ -6,6 +6,6 @@ from distutils.core import setup
 setup(
     version='0.0.1',
     name='ros-face-recognition',
-    packages=['face_recognition'],
+    packages=['ros_face_recognition'],
     package_dir={'': 'src'}
 )
