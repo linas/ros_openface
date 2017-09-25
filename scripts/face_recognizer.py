@@ -46,7 +46,7 @@ from ros_face_recognition.msg import Face, Faces
 from std_msgs.msg import String
 
 CWD = os.path.dirname(os.path.abspath(__file__))
-HR_MODELS = os.environ.get('HR_MODELS', os.path.expanduser('~/.hr/cache/models'))
+HR_MODELS = os.environ.get('HR_MODELS', os.path.expanduser('~/.hr/models'))
 DATA_DIR = os.path.join(os.path.expanduser('~/.hr/data'), 'faces')
 DATA_ARCHIVE_DIR = os.path.join(DATA_DIR, 'archive')
 CLASSIFIER_DIR = os.path.join(DATA_DIR, 'classifier')
