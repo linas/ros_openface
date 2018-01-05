@@ -151,6 +151,24 @@ class FaceRecognizer(object):
 
         return reps, bb
 
+    def align_image(self, imgObject, imgName):
+        rgb = imgObject.getRGB()
+        if rgb is None:
+            outRgb = None
+        else:
+            outRgb = self.align.align(
+                    self.imgDim, rgb,
+                    landmarkIndices=self.landmarkIndices)
+        if outRgb is not None:
+            outBgr = cv2.cvtColor(outRgb, cv2.COLOR_RGB2BGR)
+            cv2.imwrite(imgName, outBgr)
+            logger.info("Write image {}".format(imgName))
+            return True
+        else:
+            os.remove(imgObject.path)
+            logger.warn("No face was detected in {}. Removed.".format(imgObject.path))
+            return False
+
     def align_images(self, input_dir):
         imgs = list(iterImgs(input_dir))
         # Shuffle so multiple versions can be run at once.
@@ -162,24 +180,14 @@ class FaceRecognizer(object):
                 os.makedirs(outDir)
             outputPrefix = os.path.join(outDir, imgObject.name)
             imgName = outputPrefix + ".png"
-
             if not os.path.isfile(imgName):
-                rgb = imgObject.getRGB()
-                if rgb is None:
-                    outRgb = None
-                else:
-                    outRgb = self.align.align(
-                            self.imgDim, rgb,
-                            landmarkIndices=self.landmarkIndices)
-                if outRgb is not None:
-                    outBgr = cv2.cvtColor(outRgb, cv2.COLOR_RGB2BGR)
-                    cv2.imwrite(imgName, outBgr)
-                    logger.info("Write image {}".format(imgName))
-                else:
-                    os.remove(imgObject.path)
-                    logger.warn("No face was detected in {}. Removed.".format(imgObject.path))
+                logger.info("Aligning image %s", imgName)
+                try:
+                    self.align_image(imgObject, imgName)
+                except Exception as ex:
+                    logger.error(ex)
             else:
-                logger.debug("Skip image {}".format(imgName))
+                logger.info("Skip existing aligned image %s", imgName)
 
     def gen_data(self):
         face_reps = []
