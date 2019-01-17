@@ -7,9 +7,13 @@ https://github.com/cmusatyalab/openface for details.
 
 ROS is the Robot Operating system. The code here is a thin wrapper exposing
 OpenFace as a ROS node.  Similar projects include:
+
 * https://github.com/ditoec/openface2_ros
+
 and
+
 * https://github.com/interaction-lab/openface_ros
+
 both of which contain more features and better documentation than this repo does.
 
 See also https://github.com/tue-robotics/image_recognition
