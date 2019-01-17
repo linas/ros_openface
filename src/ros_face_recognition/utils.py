@@ -1,3 +1,4 @@
+# Copyright (c) 2013-2018 Hanson Robotics, Ltd. 
 import math
 def get_3d_point(bbox, cam_width=640, cam_height=480, cam_fov=0.625):
     # TODO will need to be updated:
